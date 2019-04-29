@@ -32,7 +32,7 @@ public class MyprojectApplicationTests {
                     System.out.println("Receiver3.properties:" + properties);
                     System.out.println("Receiver3.body:" + new String(body));
 
-                    channel.basicAck(envelope.getDeliveryTag(), false);
+//                    channel.basicAck(envelope.getDeliveryTag(), false);
 
                 }
             });
