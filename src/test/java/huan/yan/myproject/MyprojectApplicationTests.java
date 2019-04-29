@@ -34,7 +34,6 @@ public class MyprojectApplicationTests {
 
                     channel.basicAck(envelope.getDeliveryTag(), false);
 
-
                 }
             });
 		}
