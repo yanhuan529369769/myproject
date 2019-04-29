@@ -34,6 +34,9 @@
 5.message confirm
 	5.1:producer confirm 有加事务，confirmSelect 进入确认模式waitForConfirms获取返回结果判断消息发送是否成功（同步）和addConfirmListener（异步）的方式去进行消息发送确认，
 		这里只是判断broker收到了producer发送的消息，
+	5.2:consumer关闭autoAck，手动ack可防止消息丢失
+	5.3:开启mq的持久化防止消息服务的重启或者宕机导致数据丢失（还是可能有数据丢失）
+
 			
 			
 			
