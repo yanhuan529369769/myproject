@@ -16,14 +16,14 @@ public class Receiver1 {
 
     @RabbitListener(queues= RabbitMQConfig.QUEUE_A,concurrency = "2")
     public void process1(Message message) throws InterruptedException {
-  /*      executor.execute(() -> {
+        executor.execute(() -> {
             try {
                 Thread.sleep(1000);
                 System.out.println(Thread.currentThread().getName() + "====" + message);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        });*/
+        });
         Thread.sleep(1000);
         System.out.println(Thread.currentThread().getName() + "====" + message);
     }
