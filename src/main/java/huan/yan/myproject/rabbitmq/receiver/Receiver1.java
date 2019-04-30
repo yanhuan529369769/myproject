@@ -1,4 +1,3 @@
-/*
 package huan.yan.myproject.rabbitmq.receiver;
 
 import huan.yan.myproject.rabbitmq.confi.RabbitMQConfig;
@@ -15,19 +14,20 @@ public class Receiver1 {
     private final ExecutorService executor = Executors.newFixedThreadPool(5);
 
 
-    @RabbitListener(queues= RabbitMQConfig.QUEUE_A)
-    public void process1(Message message){
-        executor.execute(() -> {
+    @RabbitListener(queues= RabbitMQConfig.QUEUE_A,concurrency = "2")
+    public void process1(Message message) throws InterruptedException {
+  /*      executor.execute(() -> {
             try {
                 Thread.sleep(1000);
                 System.out.println(Thread.currentThread().getName() + "====" + message);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        });
+        });*/
+        Thread.sleep(1000);
+        System.out.println(Thread.currentThread().getName() + "====" + message);
     }
 
 
 
 }
-*/

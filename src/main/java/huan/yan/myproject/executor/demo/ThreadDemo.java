@@ -1,6 +1,7 @@
 package huan.yan.myproject.executor.demo;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 
 public class ThreadDemo {
@@ -8,7 +9,8 @@ public class ThreadDemo {
 
     private static final ExecutorService executor = Executors.newFixedThreadPool(5);
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void  main(String[] args) throws ExecutionException, InterruptedException {
+        System.out.println(args);
         /*long l = System.currentTimeMillis();
         List<Future> list = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
@@ -30,13 +32,23 @@ public class ThreadDemo {
         for (Future future : list) {
             System.out.println(future.isDone());
         }*/
+        List<Future> list = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             int finalI = i;
-            Future<?> submit = executor.submit((Callable) () -> Thread.currentThread().getName()+ "aa" + finalI);
-            System.out.println(submit.get());
+            Future<?> submit = executor.submit(new Callable() {
+
+                @Override
+                public Object call() throws Exception {
+                    if(finalI % 2 ==0){
+                        return 1;
+                    }else {
+                        return 0;
+                    }
+                }
+            });
+
+
         }
-
     }
-
 }
 
