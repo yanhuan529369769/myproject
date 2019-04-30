@@ -1,9 +1,6 @@
 package huan.yan.myproject;
 
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
+import com.rabbitmq.client.*;
 import huan.yan.myproject.rabbitmq.confi.RabbitMQConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,5 +35,18 @@ public class MyprojectApplicationTests {
             });
 		}
 	}
+
+	@Test
+	public void deliverCallback() throws IOException {
+		Channel channel = rabbitMQService.getChannel();
+		while(true){
+			DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+				String message = new String(delivery.getBody(), "UTF-8");
+				System.out.println(" [x] Received '" + message + "'");
+			};
+			channel.basicConsume(RabbitMQConfig.QUEUE_B, true, deliverCallback, consumerTag -> { });
+		}
+	}
+
 
 }
