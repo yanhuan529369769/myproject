@@ -64,7 +64,6 @@ public class Sender2 {
         channel.confirmSelect();
         long l = System.currentTimeMillis();
         for (int i = 0; i < 10; i++) {
-
             channel.basicPublish(RabbitMQConfig.EXCHANGE_A, "topic.a.b", null, (msg + i).getBytes());
            /* AMQP.BasicProperties properties = new AMQP.BasicProperties().builder()
                     .deliveryMode(2) // 传送方式
@@ -94,6 +93,7 @@ public class Sender2 {
         System.out.println("sendByChannelAddConfirmListener time:" + (l2 - l));
     }
 
+    //  producer方添加事务，但是效率很低 不如confirm模式
     public void sendByChannelAddTransaction(String msg) throws IOException, TimeoutException {
         Channel channel = rabbitMQService.channel;
         try {

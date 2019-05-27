@@ -42,6 +42,85 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.1.6.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+        </dependency>
+
+		<!-- HTTPCOMPONENTS -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient-cache</artifactId>
+			<version>4.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore-ab</artifactId>
+			<version>4.4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore-nio</artifactId>
+			<version>4.4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.5.3</version>
+		</dependency>
+
+		<!-- zabbix -->
+		<dependency>
+			<groupId>io.github.hengyunabc</groupId>
+			<artifactId>zabbix-api</artifactId>
+			<!--<version>0.0.2</version>-->
+		</dependency>
+		<dependency>
+			<groupId>io.github.hengyunabc</groupId>
+			<artifactId>zabbix-api</artifactId>
+			<version>0.0.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.percederberg.mibble/mibble -->
+		<dependency>
+			<groupId>net.percederberg.mibble</groupId>
+			<artifactId>mibble</artifactId>
+			<version>2.9.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.percederberg.mibble/mibble-mibs -->
+		<dependency>
+			<groupId>net.percederberg.mibble</groupId>
+			<artifactId>mibble-mibs</artifactId>
+			<version>2.9.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.snmp4j/snmp4j -->
+		<dependency>
+			<groupId>org.snmp4j</groupId>
+			<artifactId>snmp4j</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
 
 	</dependencies>
 

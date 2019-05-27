@@ -1,3 +1,4 @@
+/*
 package huan.yan.myproject.rabbitmq.receiver;
 
 import com.rabbitmq.client.*;
@@ -15,17 +16,40 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-/*public class Receiver3 {
+public class Receiver3 {
 
-    public static void main(String[] args) throws IOException {
-        RabbitMQConfig config = new RabbitMQConfig();
-        RabbitMQConfig.RabbitMQService rabbitMQService = new RabbitMQConfig().new RabbitMQService();
+    @Autowired
+    private RabbitMQConfig.RabbitMQService rabbitMQService;
+
+    public void contextLoads() throws IOException {
         Channel channel = rabbitMQService.getChannel();
         while(true){
-            String s = channel.basicConsume(RabbitMQConfig.QUEUE_B, false, new DefaultConsumer(channel));
+            String s = channel.basicConsume(RabbitMQConfig.QUEUE_B, false, new DefaultConsumer(channel){
+                @Override
+                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+                        throws IOException {
+                    System.out.println("Receiver3.consumerTag:" + consumerTag);
+                    System.out.println("Receiver3.envelope:" + envelope);
+                    System.out.println("Receiver3.properties:" + properties);
+                    System.out.println("Receiver3.body:" + new String(body));
 
-            System.out.println("Receiver3.getMsg():" + s);
+                    channel.basicAck(envelope.getDeliveryTag(), false);
+
+                }
+            });
         }
     }
 
-}*/
+
+    public void deliverCallback() throws IOException {
+        Channel channel = rabbitMQService.getChannel();
+        while(true){
+            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+                String message = new String(delivery.getBody(), "UTF-8");
+                System.out.println(" [x] Received '" + message + "'");
+            };
+            channel.basicConsume(RabbitMQConfig.QUEUE_B, true, deliverCallback, consumerTag -> { });
+        }
+    }
+}
+*/
