@@ -1,3 +1,4 @@
+/*
 package huan.yan.myproject.rabbitmq.controller;
 
 import huan.yan.myproject.rabbitmq.sender.Sender2;
@@ -33,3 +34,4 @@ public class MqController {
     }
 
 }
+*/

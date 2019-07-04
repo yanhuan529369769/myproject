@@ -1,4 +1,3 @@
-/*
 package huan.yan.myproject.rabbitmq.receiver;
 
 import com.rabbitmq.client.*;
@@ -52,4 +51,3 @@ public class Receiver3 {
         }
     }
 }
-*/

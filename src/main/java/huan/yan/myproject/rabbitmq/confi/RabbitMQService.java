@@ -1,4 +1,3 @@
-/*
 package huan.yan.myproject.rabbitmq.confi;
 
 import com.rabbitmq.client.Channel;
@@ -55,4 +54,3 @@ public class RabbitMQService {
 
 
 }
-*/

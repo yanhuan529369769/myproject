@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CdmiController {
 
-    @GetMapping(value = "/{path:.*}/bb")
-//    @GetMapping("/{path:.*(/)}")
+    @GetMapping(value = "/aa/bb")
     public String getStr(){
 
-        return "hello";
+        return "index";
     }
 
 }

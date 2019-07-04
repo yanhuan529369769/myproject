@@ -2,6 +2,7 @@ package huan.yan.myproject;
 
 import com.rabbitmq.client.*;
 import huan.yan.myproject.rabbitmq.confi.RabbitMQConfig;
+import huan.yan.myproject.zabbix.ConfigUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,17 @@ public class MyprojectApplicationTests {
 
 	@Autowired
 	private RabbitMQConfig.RabbitMQService rabbitMQService;
+
+	@Autowired
+	private huan.yan.myproject.zabbix.ConfigUtil configUtil;
+
+	@Test
+	public void configUtil(){
+		System.out.println(configUtil.getJson());
+
+
+	}
+
 	@Test
 	public void contextLoads() throws IOException {
 		Channel channel = rabbitMQService.getChannel();

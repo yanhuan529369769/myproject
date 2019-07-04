@@ -100,19 +100,23 @@
 			<artifactId>zabbix-api</artifactId>
 			<version>0.0.2</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/net.percederberg.mibble/mibble -->
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.8</version>
+		</dependency>
+		<!--&lt;!&ndash; https://mvnrepository.com/artifact/net.percederberg.mibble/mibble &ndash;&gt;
 		<dependency>
 			<groupId>net.percederberg.mibble</groupId>
 			<artifactId>mibble</artifactId>
 			<version>2.9.3</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/net.percederberg.mibble/mibble-mibs -->
+		&lt;!&ndash; https://mvnrepository.com/artifact/net.percederberg.mibble/mibble-mibs &ndash;&gt;
 		<dependency>
 			<groupId>net.percederberg.mibble</groupId>
 			<artifactId>mibble-mibs</artifactId>
 			<version>2.9.3</version>
-		</dependency>
+		</dependency>-->
 
 		<!-- https://mvnrepository.com/artifact/org.snmp4j/snmp4j -->
 		<dependency>
@@ -120,8 +124,22 @@
 			<artifactId>snmp4j</artifactId>
 			<version>3.1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
 
 
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson</artifactId>
+			<version>2.7.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -129,6 +147,20 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>huan.yan.myproject.MyprojectApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

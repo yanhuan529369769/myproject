@@ -70,11 +70,12 @@ public class RabbitMQConfig {
             // 如果发送到交换器都没有成功（比如说删除了交换器），ack 返回值为 false
             // 如果发送到交换器成功，但是没有匹配的队列（比如说取消了绑定），ack 返回值为还是 true （这是一个坑，需要注意）
             if (ack) {
-               /* String id = correlationData.getId();
+ String id = correlationData.getId();
                 boolean ackFlag = (boolean) correlationData.getReturnedMessage().getMessageProperties().getHeaders().get(id);
                 if (ackFlag) {
                     System.out.println("rabbitTemplate setConfirmCallback correlationData:" + correlationData);
-                }*/
+                }
+
 
                 System.out.println("rabbitTemplate setConfirmCallback correlationData:" + correlationData);
                 System.out.println("rabbitTemplate setConfirmCallback ack:" + ack);
@@ -131,7 +132,8 @@ public class RabbitMQConfig {
         connectionFactory.setUsername(username);
         connectionFactory.setPassword(password);
         connectionFactory.setVirtualHost(virtualHost);
-        /** 如果要进行消息回调，则这里必须要设置为true */
+//* 如果要进行消息回调，则这里必须要设置为true
+
         connectionFactory.setPublisherConfirms(publisherConfirms);
         connectionFactory.setPublisherReturns(true);
         return connectionFactory;
@@ -150,7 +152,7 @@ public class RabbitMQConfig {
     }
 
     //创建监听器，监听队列
-/*    @Bean
+    @Bean
     public SimpleMessageListenerContainer mqMessageContainer(@Autowired Receiver2 handleService) throws AmqpException, IOException {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory());
         container.setQueueNames(queue1().getName(), queue2().getName());
@@ -160,7 +162,8 @@ public class RabbitMQConfig {
         container.setAcknowledgeMode(AcknowledgeMode.MANUAL);//设置确认模式为手工确认
         container.setMessageListener(handleService);//监听处理类
         return container;
-    }*/
+    }
+
 
     @Bean
     public Binding bind() {
@@ -172,7 +175,7 @@ public class RabbitMQConfig {
         return BindingBuilder.bind(queue2()).to(exchange()).with("topic.#");
     }
 
-    /* @Bean
+ @Bean
      public Binding bind1() {
          return BindingBuilder.bind(queue2()).to(exchange()).with("topic.#");
      }
@@ -181,7 +184,8 @@ public class RabbitMQConfig {
      public Binding bind2() {
          return BindingBuilder.bind(queue3()).to(exchange()).with("topic.#");
      }
- */
+
+
     @Component
     public class RabbitMQService {
         private Connection connection;

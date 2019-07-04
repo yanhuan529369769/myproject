@@ -124,9 +124,9 @@ public class HmacSha1Util {
       System.out.println("x-aqua-date: "+currenttime);
       System.out.println("x-aqua-user-domain-uri: /cdmi_domains/defaultdomainname/");
       
-      String aa = uriUTF8Encode("/aqua/rest/cdmi/用户头像/aa");
+      String aa = uriUTF8Encode("/aqua/rest/cdmi/用户头像/decorator");
       System.out.println("Encoded URI:"+aa);
-      aa = uriUTF8Encode("/aqua/rest/cdmi/%E7%94%A8%E6%88%B7%E5%A4%B4%E5%83%8F/aa");
+      aa = uriUTF8Encode("/aqua/rest/cdmi/%E7%94%A8%E6%88%B7%E5%A4%B4%E5%83%8F/decorator");
       System.out.println("Encoded URI:"+aa);
       aa = uriUTF8Encode("/aqua");
       System.out.println("Encoded URI:"+aa);
